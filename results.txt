@@ -68,7 +68,23 @@ count 1000:
 count 10000:
 [991, 1088, 1091, 1082, 1081, 1116, 1070, 1155, 1136, 1117]
 count 100000:
-[10056, 9835, ]
+[10056, 9835, 8192, 10419, 10269]
+
+
+---- Memory ----
+---- about memory reports ----
+default: 3.52 mb
+count 100: 4.61 mb
+count 1000: 10.5 mb
+count 10000: 44.2 mb
+count 100000: 316 mb
+
+
+Reaction:
+100000: slow not usable
+10000: slow and with big lags
+1000: average
+100: fast
 
 
 

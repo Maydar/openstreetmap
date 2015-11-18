@@ -1,0 +1,88 @@
+#time in milliseconds
+
+----microsoft edge emulation mode----
+----ie8(emulation mode) render time----:
+circles:
+	100 objects:
+	[263, 270, 307, 330, 271, 299, 317, 316, 328, 304]
+	
+	1000 objects:
+	[13819, 14281, 14069, 14478, 14809, 14678, 14223, 14808, 14707, 14694]
+
+	10000 objects:
+	not rendering
+
+	memory:
+
+	default: ~74mb
+	100 obj: ~74mb
+	1000 obj: ~100mb
+	10000 obj: ~up to 120 mb and not rendering
+
+	usage:
+	100 obj: fast and without lags
+	1000obj: average with lags (low fps)
+	10000: not rendering
+
+
+
+
+
+(windows 10)
+----chrome----
+circles:
+	100 objects:
+	[42,34,37,35,33,36,33,32,38,34]
+
+	1000 objects:
+	[191, 175, 195, 200, 203, 211, 182, 189, 198, 195]
+
+	10000 objects:
+	[1665, 1582, 1631, 1631, 1685, 1604, 1638, 1833, 1856, 1963]
+
+	100000 objects:
+	[15718, 15986, 15688, 16147, 15617, 15904, 16237, 16020, 16243, 16026]
+
+	1000000:
+	not rendering
+
+
+
+	memory
+	default ~28mb
+	100: as default
+	1000: ~35mb or default + 7mb
+	10000: ~120mb or + default ~60-80mb
+	100000: ~700mb
+
+	usage: 
+	100000: not usable
+	10000: average with lags
+	1000: fast
+	100: fast
+
+
+(windows 10)
+----firefox----
+circles:
+	100 objects:
+	[230, 236, 234, 239, 236, 240, 240, 233, 260, 239]
+
+	1000 objects:
+	[1998, 1999, 1987, 1927, 1948, 1947, 1961, 1950, 1965, 1902]
+
+	10000 objects:
+	stopping popup appears, browser is lagging
+	[19032, 18616, 18843, 18426, 19748]
+
+
+	memory (whole firefox process):
+	default: ~500mb
+	100: 
+	1000: as def
+	10000: + 200-300 mb
+
+	usage
+	10000: slow and witl lags
+	1000: average
+	100: fast

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>OSM example</title>
+  <link rel="stylesheet" href="node_modules/openlayers/dist/ol.css"/>
+  <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+  <style>
+
+  #map {width: 70%; height: 800px; display: inline-block; background-color: #ddd;}
+  .menu {width: 29%; height: auto; display: inline-block; vertical-align: top;}
+
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<div class="menu">
+  <p>Укажите количество объектов</p>
+  <input id="jsCount" type="number" name="count"/>
+  <button id="jsCreate">Сгенерировать</button>
+  <button id="jsClear">Очистить карту</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script src="node_modules/openlayers/dist/ol.js"></script>
+<script src="node_modules/leaflet/dist/leaflet.js" type="text/javascript"></script>
+<script src="src/openlayers.js" type='text/javascript'></script>
+</body>
+</html>

@@ -1,20 +1,35 @@
 function generateCircles(count, map, mapCenter) {
     var lat, lng, center, tmpLng,
         radius = 1.3,
-        vectorLayer, vectorSource;
+        vectorLayer, vectorSource,
+        fromProjection = new OpenLayers.Projection('EPSG:4326'),
+        toProjection = new OpenLayers.Projection('EPSG:900913'),
+        circleFeatures = [];
 
     var allLayers = map.getLayersByClass('OpenLayers.Layer.Vector');
-    if (allLayers.length > 1) {
-
+    if (allLayers.length > 0) {
+        circleFeatures = allLayers[0].getFeaturesByAttribute();
+        map.removeLayer(allLayers[0]);
     }
 
     for (var i = 0, l = count; i < l; i++) {
         lat = Math.random() * 2 * radius - radius;
         tmpLng = Math.sqrt(radius * radius - lat * lat);
         lng = Math.random() * 2 * tmpLng - tmpLng;
-        center = [mapCenter[0] + 2*lat, mapCenter[1] + lng];
+        var circle = OpenLayers.Geometry.Polygon.createRegularPolygon(
+                new OpenLayers.Geometry.Point(mapCenter[0] + 2*lat, mapCenter[1] + lng)
+                    .transform(fromProjection, toProjection),
+                2000,
+                30),
+            circleFeature = new OpenLayers.Feature.Vector(circle);
 
+        circleFeatures.push(circleFeature);
     }
+
+    vectorLayer = new OpenLayers.Layer.Vector();
+    vectorLayer.addFeatures(circleFeatures);
+
+    map.addLayer(vectorLayer);
 
 }
 
@@ -23,7 +38,8 @@ function generatePolygons(count, map, mapCenter) {
 
 
 function clearMap(map) {
-
+    var layer = map.getLayersByClass('OpenLayers.Layer.Vector')[0];
+    layer.removeAllFeatures();
 }
 
 
@@ -32,7 +48,8 @@ $(function () {
         layer = new OpenLayers.Layer.OSM(),
         fromProjection = new OpenLayers.Projection('EPSG:4326'),
         toProjection = new OpenLayers.Projection('EPSG:900913'),
-        mapCenter = new OpenLayers.LonLat(37.6155600,55.7522200).transform(fromProjection, toProjection),
+        mapCenter = [37.6155600, 55.7522200],
+        position = new OpenLayers.LonLat(mapCenter[0], mapCenter[1]).transform(fromProjection, toProjection),
         zoom = 8;
 
     map.addLayer(layer);

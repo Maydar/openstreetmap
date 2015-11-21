@@ -53,10 +53,10 @@ $(function () {
     var map = new ol.Map({
         layers: [
             new ol.layer.Tile({
-                source: new ol.source.OSM({
+                source: new ol.source.OSM(/*{
                     url: 'http://localhost:8000/osm/{z}/{x}/{y}.png',
                     crossOrigin: 'Anon'
-                })
+                }*/)
             })
         ],
 
@@ -79,6 +79,7 @@ $(function () {
                 var end = new Date().getTime();
                 elapsedTime = end - start;
                 console.log("Map render time %d milliseconds ", elapsedTime);
+                $('.menu').append("<p> map render: " + elapsedTime + " </p>");
 
             },0);
         }

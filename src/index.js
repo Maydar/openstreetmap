@@ -65,7 +65,7 @@ $(function () {
                 var end = new Date().getTime();
                 elapsedTime = end - start;
                 console.log("Map render time %d milliseconds ", elapsedTime);
-
+                $('.menu').append("<p> map render: " + elapsedTime + " </p>");
             },0);
         }
     });

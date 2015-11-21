@@ -86,3 +86,96 @@ circles:
 	10000: slow and witl lags
 	1000: average
 	100: fast
+
+
+
+---- ie9 emulation mode openlayers3 ----
+
+count 100	
+[45, 52, 35, 47, 42, 39, 37, 45, 42, 52]
+count 1000:
+[207, 206, 201, 209, 215, 210, 208, 210, 203, 202]
+count 10000:
+[1949, 1939, 1953, 1902, 1987, 1982,1911, 1902, 1956, 1974]
+
+count 100000:
+[20263, 20127, 20295, 20954, 20458]
+
+-- memory --
+def: ~ 90mb
+count 100: drawing 93 mb -> stable 91
+count 1000: up to 103mb stable  ~100mb
+count 10000: drawing 156mb stable 149mb
+count 100000: drawing up to 537mb stable 502mb
+
+
+
+-- reaction --
+count 100: fast
+count 1000: average with lags
+count 10000: slow with big lags
+count 100000: very slow not usable
+
+
+
+
+--- ie8 emulation mode openlayers2 ----
+
+count 100: 
+[183, 162, 165, 165, 175, 176, 177, 185, 174, 178]
+count 1000:
+[3904, 4022, 3972, 4099, 4126, 4227, 4020, 4196, 4258, 4190]
+
+-- memory --
+default:  ~99mb
+100: drawing up to 108mb stable 104
+1000: drawing up to 213 mb stable 187mb -> 162 mb
+
+-- reaction --
+100 : fast
+1000: fast with little lags
+
+
+---- chrome openlayers2 ----
+count 100: 
+[75, 80, 74, 69, 70, 85, 70, 81, 68, 68]
+count 1000: 
+[507, 529, 443, 497, 467, 437, 490, 505, 535, 445]
+count 10000:
+[3765, 3899, 3894, 3848, 3822, 3891, 3909, 3859, 3903, 4019]
+count 100000:
+not rendering
+
+-- memory --
+default: 29 mb
+100: ~31mb
+1000: ~55mb => stable ~43mb
+10000: ~200mb => stable ~185mb
+
+-- reaction --
+100: fast
+1000: fast
+10000: average with lags
+
+
+---- firefox openlayers2 ----
+count 100:
+[173, 164, 181, 164, 157, 159, 160, 167, 180, 164]
+
+count 1000:
+[1227, 1272, 1163, 1256, 1177, 1203, 1162, 1156, 1158, 1281]
+
+count 10000:
+[11259, 11732, 13350, 12309, 12565, 11954, 12547, 11228, 12317, 12799]
+
+-- memory --
+windows():
+default: 12mb
+100: ~16mb
+1000: ~19mb
+10000: ~166 mb
+
+-- reaction --
+10000: slow and not usable
+1000: fast and with lags
+100: very fast

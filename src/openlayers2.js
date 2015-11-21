@@ -7,10 +7,13 @@ function generateCircles(count, map, mapCenter) {
         circleFeatures = [];
 
     var allLayers = map.getLayersByClass('OpenLayers.Layer.Vector');
-    if (allLayers.length > 0) {
-        circleFeatures = allLayers[0].getFeaturesByAttribute();
-        map.removeLayer(allLayers[0]);
+    if (allLayers.length  === 0) {
+        vectorLayer = new OpenLayers.Layer.Vector();
+    } else {
+        vectorLayer = allLayers[0];
     }
+
+    
 
     for (var i = 0, l = count; i < l; i++) {
         lat = Math.random() * 2 * radius - radius;
@@ -23,11 +26,10 @@ function generateCircles(count, map, mapCenter) {
                 30),
             circleFeature = new OpenLayers.Feature.Vector(circle);
 
-        circleFeatures.push(circleFeature);
+        //circleFeatures.push(circleFeature);
+        vectorLayer.addFeatures([circleFeature]);
     }
 
-    vectorLayer = new OpenLayers.Layer.Vector();
-    vectorLayer.addFeatures(circleFeatures);
 
     map.addLayer(vectorLayer);
 
@@ -66,6 +68,7 @@ $(function () {
                 var end = new Date().getTime();
                 elapsedTime = end - start;
                 console.log("Map render time %d milliseconds ", elapsedTime);
+                $('.menu').append("<p> map render: " + elapsedTime + " </p>");
 
             },0);
         }

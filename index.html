@@ -3,28 +3,51 @@
 <head>
   <meta charset="UTF-8"/>
   <title>OSM example</title>
-  <link rel="stylesheet" href="node_modules/openlayers/dist/ol.css"/>
-  <!-- <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css"> -->
   <style>
+/* BODY */
+.content-wrapper {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	color: #776E65;
+	background-color: #2A475F;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 
-  #map {width: 70%; height: 800px; display: inline-block; background-color: #ddd;}
-  .menu {width: 29%; height: auto; display: inline-block; vertical-align: top;}
+	justify-content: center;
+	overflow: auto;
+}
+
+	/* TABLE WRAPPER*/
+	.content-form {
+		border: 1px solid black;
+		padding: 40px;
+		min-width: 600px;
+		background-color: #171A21;
+		font-family: "Helvetica";
+	}
+
 
   </style>
 </head>
 <body>
-<div id="map"></div>
-<div class="menu">
-  <p>Укажите количество объектов</p>
-  <input id="jsCount" type="number" name="count"/>
-  <button id="jsCreate">Сгенерировать</button>
-  <button id="jsClear">Очистить карту</button>
-</div>
+  <div class="content-wrapper">
+    <div class="content-form">
+      <div class="internal-wrapper">
+        <p><a href="/home/maydar/work/openstreetmap/leaflet.html">leaflet example</a></p>
+        <p><a href="/home/maydar/work/openstreetmap/openlayerstwo.html">openlayers2 example</a></p>
+        <p><a href="/home/maydar/work/openstreetmap/openlayersthree.html">openlayers3 example</a></p>
+      </div>
+    </div>
+  </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
-<script src="node_modules/openlayers/dist/ol.js"></script>
-<script src="node_modules/leaflet/dist/leaflet.js" type="text/javascript"></script>
-<script src="op2/OpenLayers.js" type="text/javascript"></script>
-<script src="src/openlayers.js" type='text/javascript'></script>
 </body>
 </html>
